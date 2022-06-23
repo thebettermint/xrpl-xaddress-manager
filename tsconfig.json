@@ -1,0 +1,9 @@
+{
+  "extends": "@thebettermint/tsconfig",
+  "exclude": ["node_modules"],
+  "include": ["src/**/*", "types/**/*", "interface"],
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "dist"
+  }
+}
