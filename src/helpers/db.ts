@@ -1,8 +1,9 @@
 import mongoose from 'mongoose';
 import { MongoClientOptions } from 'mongodb';
-import env from '../helpers/env';
+import config from '../../config.json';
 
 import wallet_model from '../models/wallet.model';
+import balance_model from '../models/balance.model';
 
 interface ConnectOptions extends MongoClientOptions {
   /** Set to false to [disable buffering](http://mongoosejs.com/docs/faq.html#callback_never_executes) on all models associated with this connection. */
@@ -19,24 +20,25 @@ interface ConnectOptions extends MongoClientOptions {
   autoCreate?: boolean;
 }
 
-const port = env['DB_PORT'];
-const container = env['DB_IP_ADDRESS'];
+const port = config[0].db.port;
+const container = config[0].db.ip;
 const uri = `mongodb://${container}:${port}`;
 
 const connectionOptions: ConnectOptions = {
   bufferCommands: true,
   autoIndex: true,
   autoCreate: true,
-  user: env['DB_ROOT_KEY'],
-  pass: env['DB_ROOT_SECRET'],
-  dbName: env['DB_NAME'],
+  user: config[0].db.rootKey || config[0].db.userKey,
+  pass: config[0].db.rootSecret || config[0].db.userSecret,
+  dbName: config[0].db.name,
 };
 
-mongoose.connect(env['MONGODB_URI'] || uri, connectionOptions);
+mongoose.connect(config[0].db.uri || uri, connectionOptions);
 mongoose.Promise = global.Promise;
 
 export default {
   Wallet: wallet_model,
+  Balance: balance_model,
   isValidId,
 };
 
