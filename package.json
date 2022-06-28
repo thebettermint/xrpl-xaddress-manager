@@ -8,6 +8,8 @@
   "license": "GPL-3.0",
   "private": true,
   "dependencies": {
+    "@thebettermint/xrpl-auto-funder": "^0.0.2",
+    "@thebettermint/xrpl-tx-parser": "^0.0.4",
     "dotenv": "^16.0.1",
     "fs": "^0.0.1-security",
     "joi": "^17.6.0",
