@@ -1,6 +1,16 @@
 [
   {
-    "network": "nft",
-    "registry": []
+    "network": "main",
+    "registry": [""],
+    "db": {
+      "name": "",
+      "port": 27017,
+      "rootKey": "",
+      "rootSecret": "",
+      "userKey": "",
+      "userSecret": "",
+      "ip": "x.x.x.x",
+      "uri": null
+    }
   }
 ]
