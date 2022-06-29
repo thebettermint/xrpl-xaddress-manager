@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: 'mongo'
+    container_name: xaddress_manager_db
+    restart: always
+    volumes:
+      - ./db/data:/data/db
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: 'root'
+      MONGO_INITDB_ROOT_PASSWORD: 'super_secret_password'
