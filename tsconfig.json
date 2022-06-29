@@ -1,7 +1,7 @@
 {
   "extends": "@thebettermint/tsconfig",
   "exclude": ["node_modules"],
-  "include": ["src/**/*", "types/**/*", "config/*"],
+  "include": ["src/**/*", "types/**/*", "config/**/*", "config/config.json"],
   "compilerOptions": {
     "rootDir": ".",
     "outDir": "dist",
