@@ -1,19 +1,17 @@
 import db from '../helpers/db';
 import { PaymentInterface } from '../../types/parser/payment';
-import config from '../../config.json';
+import config from '../../config/config.json';
+import directoryService from './directory.service';
+import { rippleTimeToISOTime } from 'xrpl';
 
 const parse = (tx: PaymentInterface, side: string): any => {
   return {
-    tag: tx[`${side}Tag`] || 0,
-    change: tx[`${side}_balance_changes`].value,
-    timestamp: tx.time,
+    tag: tx[`${side}_tag`] || 0,
+    change: tx[`${side}_balance_changes`][0].value,
+    timestamp: tx.time ? rippleTimeToISOTime(Number(tx.time)) : null,
     data: {
-      amount: {
-        currency: tx[`${side}_balance_changes`].currency,
-        issuer: tx[`${side}_balance_changes`].counterparty,
-        amount: tx[`${side}_balance_changes`].value,
-      },
-      hash: tx.tx_hash,
+      currency: tx[`${side}_balance_changes`][0].currency,
+      issuer: tx[`${side}_balance_changes`][0].counterparty,
     },
   };
 };
@@ -31,13 +29,14 @@ const process = async (tx: PaymentInterface) => {
   const sides = determineSides(tx);
   sides.forEach(async (side: string) => {
     let param = parse(tx, side);
-    create(param);
+    create(param, tx, side);
   });
 };
 
-const create = async (param: any) => {
+const create = async (param: any, tx: PaymentInterface, side: string) => {
   const balance = new db.Balance(param);
   await balance.save();
+  directoryService.process(balance._id.toString(), tx, side);
   return details(balance);
 };
 
