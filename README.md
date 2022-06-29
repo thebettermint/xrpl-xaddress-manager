@@ -34,7 +34,7 @@ yarn start
 ```
 
 ## TO DO's
-- Wallet transaction backfilling tracking tags
+- Wallet tx backfilling
 - Direct support for xAddress
 - Mongo query functions for getting current tag balance
 
