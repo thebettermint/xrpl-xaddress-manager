@@ -103,4 +103,9 @@ dist
 # TernJS port file
 .tern-port
 
+# Configuration files
 config.json
+config.backup.json
+
+# Docker mongodb
+db
