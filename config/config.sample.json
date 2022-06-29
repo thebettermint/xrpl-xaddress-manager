@@ -1,15 +1,15 @@
 [
   {
-    "network": "main",
-    "registry": [""],
+    "network": "wss://s.altnet.rippletest.net:51233",
+    "registry": ["rDXNoqj7wwE3DShsrAm6USRLHKB762AsVJ"],
     "db": {
-      "name": "",
+      "name": "walletdb",
       "port": 27017,
-      "rootKey": "",
-      "rootSecret": "",
+      "rootKey": "root",
+      "rootSecret": "super_secret_password",
       "userKey": "",
       "userSecret": "",
-      "ip": "x.x.x.x",
+      "ip": "127.0.0.1",
       "uri": null
     }
   }
