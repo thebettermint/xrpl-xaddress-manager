@@ -631,10 +631,10 @@
     ripple-address-codec "^4.2.4"
     xrpl "^2.3.0"
 
-"@thebettermint/xrpl-tx-parser@^0.0.4":
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/@thebettermint/xrpl-tx-parser/-/xrpl-tx-parser-0.0.4.tgz#db89d62286b89c8f66c05d76c57f0f24281e93f0"
-  integrity sha512-wDcmg98vKd3BM6YqNyb7AhU93JlUkydHqck4E5GRgaMbnVdhIngEgmHQN7Urfa+HKXaVQegktfe7m/+w/6DxJQ==
+"@thebettermint/xrpl-tx-parser@0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@thebettermint/xrpl-tx-parser/-/xrpl-tx-parser-0.0.5.tgz#087556ecaac24bc293ea7210ebcb8076218e7fc1"
+  integrity sha512-uOCT/Adb3jY80iQGiSauOE/yqRbZPZ3aewIfuIM/tRNZcQe3bx7aa503a5oJ9zqx1ZuaJJyHyGvfcp1EHFkGFw==
   dependencies:
     "@thebettermint/tsconfig" "0.0.3"
     assert "^2.0.0"
