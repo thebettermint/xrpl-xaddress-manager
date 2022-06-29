@@ -33,6 +33,9 @@ You can now begin listening for new deposits or widthdrawals. The balance change
 yarn start
 ```
 
-
+## TO DO's
+- Wallet transaction backfilling tracking tags
+- Direct support for xAddress
+- Mongo query functions for getting current tag balance
 
 
