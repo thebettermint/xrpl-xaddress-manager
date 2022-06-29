@@ -1,11 +1,12 @@
 import Client, { constants } from '@thebettermint/xrpl-tx-parser';
-import config from '../config.json';
-import walletService from './services/wallet.service';
+import config from '../config/config.json';
+//import walletService from './services/wallet.service';
 import balanceService from './services/balance.service';
 
 const main = async () => {
   let api = new Client({
-    registry: config[0].registry || undefined,
+    url: config[0].network,
+    registry: config[0].registry,
   });
   let events = constants.wsStatusMessages;
 
