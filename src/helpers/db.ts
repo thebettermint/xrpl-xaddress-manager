@@ -1,9 +1,10 @@
 import mongoose from 'mongoose';
 import { MongoClientOptions } from 'mongodb';
-import config from '../../config.json';
+import config from '../../config/config.json';
 
 import wallet_model from '../models/wallet.model';
 import balance_model from '../models/balance.model';
+import directory_model from '../models/directory.model';
 
 interface ConnectOptions extends MongoClientOptions {
   /** Set to false to [disable buffering](http://mongoosejs.com/docs/faq.html#callback_never_executes) on all models associated with this connection. */
@@ -39,6 +40,7 @@ mongoose.Promise = global.Promise;
 export default {
   Wallet: wallet_model,
   Balance: balance_model,
+  Directory: directory_model,
   isValidId,
 };
 
