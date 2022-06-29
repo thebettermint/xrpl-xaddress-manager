@@ -3,16 +3,12 @@ const Schema = mongoose.Schema;
 
 const schema = new Schema(
   {
-    tag: String,
+    tag: Number,
     change: Number,
     timestamp: Date,
     data: {
-      amount: {
-        currency: { type: String, required: true },
-        issuer: { type: Number },
-        amount: { type: Number, default: 0 },
-      },
-      hash: { type: String, required: true },
+      currency: { type: String, required: true },
+      issuer: { type: Number },
     },
   },
   {
